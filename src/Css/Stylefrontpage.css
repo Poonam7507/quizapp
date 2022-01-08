@@ -1,0 +1,26 @@
+.outer{
+    text-align: center;
+    width: 45%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px 3px white;
+
+    padding: 1%;
+    background-color: rgb(1, 1, 7);
+}
+.outer img{
+    height: 70%;
+    width: 50%;
+}
+button{
+     
+    border-radius: 12px;
+    box-shadow: 0.1vw 0.7vw  0.2vw grey;
+}
+button:active{
+    transform: scale(0.98);
+}
+button h3{
+    color: black;
+    font-size: 1.4vw;
+}

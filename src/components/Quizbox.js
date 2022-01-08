@@ -1,8 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
+
 import '../Css/Stylequizbox.css';
 import Navbar from './Navbar';
+import {Data} from './Data';
 
 export default function Quizbox() {
+    const [Curques, setCurques] = useState(0)
+    const handleAns=()=>{
+       const nextques=Curques+1;
+        setCurques(nextques);
+    }
     return (
         <div>
 <Navbar/>
@@ -22,32 +29,19 @@ export default function Quizbox() {
         </div>
         <div className='question'>
 
-            <h2>what is your name?</h2>
+            <h2>{Data[Curques].questionText}</h2>
         </div>
         <div className='option'>
-        <div className='upper'>
-           
+            
            <div className='opt'>
-            <li>option 1</li>
+            {Data[Curques].options.map((props)=>
+            <li>
+                 <button onClick={handleAns}>{props}</button>
+            </li>
+            )}
 
            </div>
-           <div className='opt'>
-
-            <li>option 2</li>
-
-           </div>
-        </div>
-
-        <div className='bottom'>
-        <div className='opt'>
-
-             <li>option 3</li>
-             </div>
-           <div className='opt'>
-
-            <li>option 4</li>
-            </div>
-</div>
+         
 
         </div>
           

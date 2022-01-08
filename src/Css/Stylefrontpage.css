@@ -11,16 +11,21 @@
 .outer img{
     height: 70%;
     width: 50%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px 3px white;
+    margin: 3%;
+
 }
-button{
+
+.outer button{
      
     border-radius: 12px;
     box-shadow: 0.1vw 0.7vw  0.2vw grey;
 }
-button:active{
+.outer button:active{
     transform: scale(0.98);
 }
-button h3{
+.outer button h3{
     color: black;
     font-size: 1.4vw;
 }

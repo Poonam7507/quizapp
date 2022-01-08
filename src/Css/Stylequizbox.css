@@ -31,26 +31,24 @@
     border-radius: 12px;
     background-color: navy;
     color: white;
-    font-size: 1.7vw;
+    font-size: 1.2vw;
 }
 .option li{
-    list-style: none;
+    text-align: center;
     color: white;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    list-style: none;
+    
+    
     
 }
-.option .upper,.bottom{
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-}
-.option .opt{
-    font-size: 1.3vw;
-
-    border-radius: 12px;
-    text-align: center;
+.option button{
     background-color: navy;
-    margin-bottom: 2px;
+    font-size: 1.3vw;
+    color: white;
+    border-radius: 12px;
+    padding-left: 2%;
+    width: 50%;
+    text-align: left;
 
 }
+

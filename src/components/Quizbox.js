@@ -126,18 +126,18 @@ export default function Quizbox() {
            
            </div> 
      
-     
+           <div  style={{display:trueAns?"block":"none"}}>
+             <p className='scorebox'>Correct</p>
+         </div>
+         <div  style={{display:falseAns?"block":"none"}}>
+             <p className='scorebox'>Incorrect</p>
+         </div>
+
           
            <div className='nextbox'>
                <button className='nextbtn' onClick={handleAns}><p>Next</p></button>
            </div>
-         <div className='scorebox' style={{display:trueAns?"block":"none"}}>
-             <p>Correct</p>
-         </div>
-         <div className='scorebox' style={{display:falseAns?"block":"none"}}>
-             <p>Incorrect</p>
-         </div>
-
+       
         </div>
           
         </div>)

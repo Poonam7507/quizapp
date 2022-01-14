@@ -13,7 +13,7 @@ export default function Frontpage() {
             </div>
             <div>
             <Link to="/quizbox">
-            <button>
+            <button className='startbtn'>
                 <a href='./Quizbox'><h3>Let's Start</h3></a></button>
             </Link>
             </div>

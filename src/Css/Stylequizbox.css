@@ -32,6 +32,7 @@
     background-color: navy;
     color: white;
     font-size: 1.2vw;
+
 }
 .option li{
     text-align: center;
@@ -80,13 +81,34 @@
     text-shadow: 0.2vw 0.2vw 0.1vw black;
 }
 
-/* .initial{
-    background-color: navy;
+.scorebox{
+    color: black;
+    text-shadow: 0.2vw 0.2vw 0.2vw white;
+    font-size: 2vw;
+    animation: answer 1s ease-in 0s 1 forwards ;
 }
-.final{
-    background-color: green;
-} */
 
+@keyframes answer {
+    
+
+    0%{
+
+        transform:rotatex(0deg);
+    }
+    50%{
+
+        transform:rotatex(80deg);
+    }
+    80%{
+
+        transform:rotatex(180deg);
+    } 
+    100%{
+
+        transform:rotatex(360deg);
+    } 
+
+}
 @media screen and (max-width:580px) {
     .box{
         margin-top: 70px;

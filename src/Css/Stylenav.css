@@ -2,7 +2,7 @@
     display: flex;
     list-style: none;
     justify-content: flex-end;
-    font-size: 1.5vw;
+    font-size: 2vw;
     text-shadow: 2px 2px 2px black;
 }
 .nav li{
@@ -12,4 +12,9 @@ a{
     list-style: none;
     color: white;
     text-decoration: none;
+}
+@media screen  and (max-width:306px){
+    .nav{
+        font-size: 2vw;
+    }
 }

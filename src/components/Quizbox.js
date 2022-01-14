@@ -6,7 +6,6 @@ import {Data} from './Data';
 
 
 export default function Quizbox() {
-    const [quesno, setQuesno] = useState(1);
     const [score, setScore] = useState(false)
     const [showscore, setshowScore] = useState(0)
     const [time, setTime] = useState(50)
@@ -14,8 +13,6 @@ export default function Quizbox() {
     const [trueAns, setTrueans] = useState(false);
     const [falseAns, setFalseAns] = useState(false)
     const [clickable, setClickable] = useState(false)
-    const [optbtn, setOptbtn] = useState("initial");
-    const [name, setName] = useState([]);
    
    useEffect(()=>{
      const interval= setInterval(()=>{
@@ -38,9 +35,7 @@ export default function Quizbox() {
     const handleAns=()=>{
        
         const nextques=Curques+1;
-        const nextquesno=quesno+1;
         if(nextques<Data.length){
-            setQuesno(nextquesno);
             setCurques(nextques);
       setTrueans(false);
       setFalseAns(false);
@@ -62,7 +57,6 @@ export default function Quizbox() {
              setshowScore(showscore+1);
              setTrueans(true);
            setClickable(true);
-        //    setOptbtn("final");
 
         }
         if(iscorrect===false){
@@ -76,14 +70,7 @@ export default function Quizbox() {
         }
       
     }
-    const handleExit = () => {
-        // const scores={
-        //     score:showscore,
-        //     name:name
-        // };
-        
-     };
-  
+    
     
     return (
         <>
@@ -93,14 +80,9 @@ export default function Quizbox() {
   { score?(
            <div className='alertbox box'>
                 <h1>All done!</h1>
-                <input
-            placeholder="Name"
-            value={name}
-            onChange={(e)=>setName(e.target.value)}
-         />
-           <h2>You score is: {showscore} out of 5</h2>
-           <button className='exitbtn' onClick={handleExit}><p>Exit</p></button>
-           
+            
+           <h2>Your score is: {showscore} out of 5</h2>
+          
        
             </div>
 
@@ -118,7 +100,7 @@ export default function Quizbox() {
         <div className='question_no'>
            <p>
 
-           {quesno}/{Data.length}
+           {Curques+1}/{Data.length}
            </p> 
         </div>
         <div className='timer'>
@@ -134,13 +116,9 @@ export default function Quizbox() {
            <div className='opt'>
             {Data[Curques].options.map((props)=>
             <li>
-
-                 <button className='optbtn' style={{backgroundColor:{optbtn}}} disabled={clickable} onClick={()=>submitAns(props.iscorrect)}>
-          
-                 {props.answer}
-           
+                 <button className='optbtn'  disabled={clickable} onClick={()=>submitAns(props.iscorrect)}>
+                {props.answer}
                  </button>
-
             </li>
             
             )}
@@ -154,11 +132,9 @@ export default function Quizbox() {
                <button className='nextbtn' onClick={handleAns}><p>Next</p></button>
            </div>
          <div className='scorebox' style={{display:trueAns?"block":"none"}}>
-             {/* setChecked((e)=>!e) */}
              <p>Correct</p>
          </div>
          <div className='scorebox' style={{display:falseAns?"block":"none"}}>
-             {/* setChecked((e)=>!e) */}
              <p>Incorrect</p>
          </div>
 

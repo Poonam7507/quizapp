@@ -12,7 +12,7 @@
 .box .top .question_no{
     color: white;
     text-align: right;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
 }
 
 .top .timer{
@@ -47,19 +47,37 @@
     color: white;
     border-radius: 12px;
     padding-left: 2%;
-    width: 50%;
+    width: 20vw;
     text-align: left;
 
 }
+
 .option .nextbox{
-    justify-content: right;
+    display: flex;
+   justify-content: flex-end;
 }
 .option .nextbtn {
-    background-color: navy;
+    background-color: black;
     font-size: 1.3vw;
     color: white;
     border-radius: 12px;
+    width: 10vw;
     
+}
+
+.alertbox h1{
+  font-size: 3.5vw;
+  color: white;
+  font-style: italic;
+  text-shadow: 2px 2px 2px grey;
+  text-align: center;
+}
+
+.alertbox h2{
+    font-size: 3.3vw;
+    color: white;
+
+    text-shadow: 0.2vw 0.2vw 0.1vw black;
 }
 
 /* .initial{
@@ -68,3 +86,35 @@
 .final{
     background-color: green;
 } */
+
+@media screen and (max-width:580px) {
+    .box{
+        margin-top: 70px;
+        font-size: 2.5vw;
+    }
+}
+@media screen and (max-width:306px) {
+    .box{
+        margin-top: 80px;
+        /* height: ; */
+    }
+    .optbtn,.question h2, p{
+        
+        font-size: 2vw;
+    }
+    .alertbox h2{
+        font-size: 3vw;
+    }
+   
+}
+@media screen and (max-width:280px) {
+   
+    .optbtn,.question h2, p{
+        
+        font-size: 2.1vw;
+    }
+    .alertbox h2{
+        font-size: 3vw;
+    }
+    
+}

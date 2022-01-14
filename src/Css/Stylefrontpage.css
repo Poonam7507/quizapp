@@ -40,7 +40,7 @@ img{
 }
 
 .outer button{
-     
+     font-size: 2vw;
     border-radius: 12px;
     box-shadow: 0.1vw 0.7vw  0.2vw grey;
 }
@@ -50,4 +50,21 @@ img{
 .outer button h3{
     color: black;
     font-size: 1.4vw;
+}
+
+
+@media screen and (max-width:580px) {
+    .outer{
+          margin-top: 80px;
+    }
+    
+    .outer button h3{
+        font-size:2vw;
+    }
+}
+@media screen and (max-width:306px) {
+    .outer{
+          margin-top: 80px;
+    }
+
 }

@@ -6,7 +6,9 @@ export default function Rules() {
         <div>
         <Navbar/>
         
-            rules dsfg
+            <p>
+            Name: <p>{localStorage.getItem('Name')}</p>
+            </p>
         </div>
     )
 }

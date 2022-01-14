@@ -14,8 +14,9 @@ export default function Quizbox() {
     const [trueAns, setTrueans] = useState(false);
     const [falseAns, setFalseAns] = useState(false)
     const [clickable, setClickable] = useState(false)
+    const [optbtn, setOptbtn] = useState("initial");
+    const [name, setName] = useState([]);
    
-    
    useEffect(()=>{
      const interval= setInterval(()=>{
               if(time){
@@ -54,8 +55,6 @@ export default function Quizbox() {
         else{
             setScore(true);
         }
-       
-        
     }
     const submitAns=(iscorrect)=>{
         if(iscorrect===true){
@@ -63,12 +62,13 @@ export default function Quizbox() {
              setshowScore(showscore+1);
              setTrueans(true);
            setClickable(true);
+        //    setOptbtn("final");
 
         }
-        if(iscorrect==false){
+        if(iscorrect===false){
             setFalseAns(true);
             
-            const tym=time-5;
+            const tym=time-10;
             setTime(tym);
            setClickable(true);
 
@@ -76,6 +76,15 @@ export default function Quizbox() {
         }
       
     }
+    const handleExit = () => {
+        // const scores={
+        //     score:showscore,
+        //     name:name
+        // };
+        
+     };
+  
+    
     return (
         <>
         <div>
@@ -84,9 +93,17 @@ export default function Quizbox() {
   { score?(
            <div className='alertbox box'>
                 <h1>All done!</h1>
+                <input
+            placeholder="Name"
+            value={name}
+            onChange={(e)=>setName(e.target.value)}
+         />
            <h2>You score is: {showscore} out of 5</h2>
-
+           <button className='exitbtn' onClick={handleExit}><p>Exit</p></button>
+           
+       
             </div>
+
   ):
 
   
@@ -118,7 +135,7 @@ export default function Quizbox() {
             {Data[Curques].options.map((props)=>
             <li>
 
-                 <button disabled={clickable} onClick={()=>submitAns(props.iscorrect)}>
+                 <button className='optbtn' style={{backgroundColor:{optbtn}}} disabled={clickable} onClick={()=>submitAns(props.iscorrect)}>
           
                  {props.answer}
            
@@ -131,9 +148,10 @@ export default function Quizbox() {
            
            </div> 
      
+     
           
-           <div className='nextbtn'>
-               <button onClick={handleAns}>Next</button>
+           <div className='nextbox'>
+               <button className='nextbtn' onClick={handleAns}><p>Next</p></button>
            </div>
          <div className='scorebox' style={{display:trueAns?"block":"none"}}>
              {/* setChecked((e)=>!e) */}

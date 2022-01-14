@@ -8,7 +8,7 @@ export default function Frontpage() {
     return (
         <div className='outer'>
            
-            <div>
+            <div className='image'>
             <img src={img2} alt=''/>
             </div>
             <div>

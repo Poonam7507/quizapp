@@ -41,7 +41,7 @@
     
     
 }
-.option button{
+ .optbtn{
     background-color: navy;
     font-size: 1.3vw;
     color: white;
@@ -51,4 +51,20 @@
     text-align: left;
 
 }
+.option .nextbox{
+    justify-content: right;
+}
+.option .nextbtn {
+    background-color: navy;
+    font-size: 1.3vw;
+    color: white;
+    border-radius: 12px;
+    
+}
 
+/* .initial{
+    background-color: navy;
+}
+.final{
+    background-color: green;
+} */

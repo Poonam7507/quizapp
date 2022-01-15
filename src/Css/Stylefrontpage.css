@@ -57,12 +57,13 @@ img{
 
 .startbtn:hover{
     transition-duration: 0.8s ;
-  background-color: red;
+  background-color: blue;
 }
 
 @media screen and (max-width:580px) {
     .outer{
           margin-top: 80px;
+          /* width: 50%; */
     }
     
     .outer button h3{
@@ -72,6 +73,8 @@ img{
 @media screen and (max-width:306px) {
     .outer{
           margin-top: 80px;
+          width: 60%;
+
     }
     .outer img{
         margin: 5%;

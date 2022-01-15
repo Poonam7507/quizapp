@@ -1,4 +1,10 @@
 import React,{useEffect, useState} from 'react';
+import  { useSound } from 'use-sound';
+import nextq from './assets/KBC.mp3'
+import correct from './assets/Finger Snapping.mp3'
+import wrong from './assets/wrongans.mp3'
+
+
 
 import '../Css/Stylequizbox.css';
 import Navbar from './Navbar';
@@ -13,11 +19,14 @@ export default function Quizbox() {
     const [trueAns, setTrueans] = useState(false);
     const [falseAns, setFalseAns] = useState(false)
     const [clickable, setClickable] = useState(false)
-   
+    const [nextsong]=  useSound(nextq);
+    const [correctsong]=  useSound(correct);
+    const [wrongsong]=  useSound(wrong);
    useEffect(()=>{
+    
      const interval= setInterval(()=>{
-              if(time){
-
+              if(time>0){
+          
                   const newtime=time-1;
                    setTime(newtime);
               }
@@ -36,11 +45,13 @@ export default function Quizbox() {
        
         const nextques=Curques+1;
         if(nextques<Data.length){
+           
+            nextsong();
             setCurques(nextques);
-      setTrueans(false);
-      setFalseAns(false);
-      setClickable(false);
-
+            setTrueans(false);
+            setFalseAns(false);
+            setClickable(false);
+      
 
 
          
@@ -53,19 +64,26 @@ export default function Quizbox() {
     }
     const submitAns=(iscorrect)=>{
         if(iscorrect===true){
-            
+            correctsong();
              setshowScore(showscore+1);
              setTrueans(true);
            setClickable(true);
 
         }
         if(iscorrect===false){
+            wrongsong();
             setFalseAns(true);
-            
-            const tym=time-10;
-            setTime(tym);
-           setClickable(true);
+            if(time>10){
 
+                const tym=time-10;
+                setTime(tym);
+            }
+            else{
+                  
+                setScore(true);
+            }
+           setClickable(true);
+          
 
         }
       
@@ -127,10 +145,10 @@ export default function Quizbox() {
            </div> 
      
            <div  style={{display:trueAns?"block":"none"}}>
-             <p className='scorebox'>Correct</p>
+             <p className='scorebox1'>Correct</p>
          </div>
          <div  style={{display:falseAns?"block":"none"}}>
-             <p className='scorebox'>Incorrect</p>
+             <p className='scorebox2'>Incorrect</p>
          </div>
 
           

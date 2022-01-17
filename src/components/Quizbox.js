@@ -13,6 +13,7 @@ import {Data} from './Data';
 
 export default function Quizbox() {
     const [score, setScore] = useState(false)
+    const [showhighscore, setShowhighscore] = useState(false)
     const [showscore, setshowScore] = useState(0)
     const [time, setTime] = useState(50)
     const [Curques, setCurques] = useState(0)
@@ -22,8 +23,14 @@ export default function Quizbox() {
     const [nextsong]=  useSound(nextq);
     const [correctsong]=  useSound(correct);
     const [wrongsong]=  useSound(wrong);
-   useEffect(()=>{
+    const [name, setName] = useState(()=>{
+        const saved =JSON.parse(localStorage.getItem('highscore'));
+        return saved;
+    } );
     
+   useEffect(()=>{
+      localStorage.setItem('highscore',JSON.stringify(name))
+
      const interval= setInterval(()=>{
               if(time>0){
           
@@ -37,12 +44,23 @@ export default function Quizbox() {
             
        },1000);
        return ()=> clearInterval(interval);
-   },[time]);
+   },[time,name]);
 
-   
+   const addName=(e)=>{
+    e.preventDefault();
+    const newName={
+        text:e.target.names.value,
+        texts:showscore,
+    };
+
+    setName([...name,newName]);
+    e.target.names.value=" ";
+    // const store=JSON.stringify(newName);
+        //  localStorage.setItem('highscore',JSON.stringify(name))
+}
     
     const handleAns=()=>{
-       
+
         const nextques=Curques+1;
         if(nextques<Data.length){
            
@@ -88,8 +106,11 @@ export default function Quizbox() {
         }
       
     }
-    
-    
+    // const exitbtn=()=>{
+    //      const store=JSON.stringify({name});
+    //      localStorage.setItem('highscore',store)
+    // }
+
     return (
         <>
         <div>
@@ -100,8 +121,35 @@ export default function Quizbox() {
                 <h1>All done!</h1>
             
            <h2>Your score is: {showscore} out of 5</h2>
+          <form onSubmit={addName}>
+              <input type="text" name="names" autoComplete='off'/>
+              <input type="submit"/>
+          </form>
+          <button style={{color:"white",backgroundColor:"blue"}} onClick={(e)=>{
+              setShowhighscore(true);
+          }}>Highscores</button>
+          <br/>
+          <button onClick={(e)=>{
+              setShowhighscore(false);
+          }}>Close</button>
           
-       
+        { showhighscore ? (
+            
+           name.sort((a,b)=>a.texts>b.texts?-1:1).map((names)=><div style={{textAlign:"center", fontSize:"1.6vw",padding:"1%", color:"white",backgroundColor:"black",borderRadius:"12px"}}>
+             Name:{names.text}
+              <br/>
+              Score:{names.texts}
+              </div>)
+             
+           
+         
+
+           
+
+              
+          ):null}
+        
+   
             </div>
 
   ):

@@ -16,6 +16,10 @@ export default function Navbar() {
                     <h3> <Link to="/rules">
                   <a href="Rules.js">  Rules </a></Link></h3>
                    </li>
+                   {/* <li>
+                    <h3> <Link to="/score">
+                  <a href="Highscore.js">  Highscore </a></Link></h3>
+                   </li> */}
      
         </div>
     )

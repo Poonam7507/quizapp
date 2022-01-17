@@ -122,7 +122,7 @@ export default function Quizbox() {
             
            <h2>Your score is: {showscore} out of 5</h2>
           <form onSubmit={addName}>
-              <input type="text" name="names" autoComplete='off'/>
+              <input type="text" name="names" autoComplete='off' placeholder='enter your name'/>
               <input type="submit"/>
           </form>
           <button style={{color:"white",backgroundColor:"blue"}} onClick={(e)=>{
